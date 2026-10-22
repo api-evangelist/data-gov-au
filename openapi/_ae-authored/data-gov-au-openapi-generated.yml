@@ -1,0 +1,387 @@
+openapi: 3.1.0
+info:
+  title: data.gov.au Federal API
+  version: '2026-10-21'
+  description: 'GENERATED FROM DOCUMENTATION by API Evangelist on 2026-10-21: 15 operation(s) read from 9 public documentation page(s) (each operation
+    names its page in x-source). This is not the provider''s published contract; data.gov.au Federal has published no machine-readable contract
+    that the pipeline could find. Engine: anthropic.'
+  x-evidence-tiers:
+    code-example: 14
+    documentation: 1
+    pages-with-code: 9
+    pages-read: 9
+  x-generated-from: documentation
+  x-provenance: generated
+  x-authored-by: API Evangelist
+  x-generated: '2026-10-21'
+  x-generator: generate-contract-from-docs.py
+  x-engine: anthropic
+  x-sources:
+  - https://docs.ckan.org/en/latest/api
+  - https://docs.ckan.org/en/latest/api/index.html
+  - https://docs.ckan.org/en/latest/api/legacy-api.html
+  - https://docs.ckan.org/en/latest/_sources/api/index.rst.txt
+  - https://docs.ckan.org/en/latest/_sources/api/legacy-api.rst.txt
+  - https://docs.ckan.org/en/latest/maintaining/filestore.html
+  - https://docs.ckan.org/en/latest/maintaining/datastore.html
+  - https://docs.ckan.org/en/latest/extensions/remote-config-update.html
+  - https://docs.ckan.org/en/latest/contributing/test.html
+servers:
+- url: http://demo.ckan.org
+paths:
+  /:
+    get:
+      operationId: get
+      tags:
+      - Api
+      summary: GET /
+      x-source: https://docs.ckan.org/en/latest/api
+      responses:
+        '200':
+          description: Success (shape read from the example response on the page)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetResponse'
+      x-evidence:
+        kind: code-example
+        language: curl
+        snippet: "curl https : //demo . ckan . org / api / 3 / action / group_list \n Alternatively, for Python users, we recommend using the\
+          \ ckanapi \nlibrary which provides a simpler and more robust way to interact with CKAN APIs.\nTo install it, run: \n pip install ckanapi\
+          \ \n Then you can make the same API call with just a few lines of Python code: \n from ckanapi import RemoteCKAN \n ckan = RemoteCKAN\
+          \ ( 'https://demo."
+  /api/3/action/am_following_user:
+    get:
+      operationId: get_api_3_action_am_following_user
+      tags:
+      - Api
+      summary: GET /api/3/action/am_following_user
+      x-source: https://docs.ckan.org/en/latest/api
+      parameters:
+      - name: id
+        in: query
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success (status as documented)
+      x-evidence:
+        kind: code-example
+        language: curl
+        snippet: "curl -H \"Authorization: XXX\" https://demo.ckan.org/api/3/action/am_following_user?id=markw\n (Replacing XXX with your API\
+          \ token.) \n Or, to get the list of activities from your user dashboard on demo.ckan.org,\nrun this Python code: \n from ckanapi import\
+          \ RemoteCKAN "
+  /api/3/action/datastore_search:
+    get:
+      operationId: get_api_3_action_datastore_search
+      tags:
+      - Api
+      summary: GET /api/3/action/datastore_search
+      x-source: https://docs.ckan.org/en/latest/maintaining/datastore.html
+      parameters:
+      - name: resource_id
+        in: query
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success (status as documented)
+      x-evidence:
+        kind: code-example
+        language: curl
+        snippet: "curl - X GET \"http://127.0.0.1:5000/api/3/action/datastore_search?resource_id=_table_metadata\" \n This should return a JSON\
+          \ page without errors. \n To test the whether the set-up allows writing, you can create a new DataStore resource.\nTo do so, run the\
+          \ following command: "
+  /api/3/action/group_list:
+    get:
+      operationId: get_api_3_action_group_list
+      tags:
+      - Api
+      summary: GET /api/3/action/group_list
+      x-source: https://docs.ckan.org/en/latest/_sources/api/index.rst.txt
+      responses:
+        '200':
+          description: Success (shape read from the example response on the page)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetApi3ActionGroupListResponse'
+      x-evidence:
+        kind: code-example
+        language: curl
+        snippet: curl https://demo.ckan.org/api/3/action/group_list
+  /api/3/action/help_show:
+    get:
+      operationId: get_api_3_action_help_show
+      tags:
+      - Api
+      summary: GET /api/3/action/help_show
+      x-source: https://docs.ckan.org/en/latest/extensions/remote-config-update.html
+      parameters:
+      - name: name
+        in: query
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success (status as documented)
+      x-evidence:
+        kind: code-example
+        language: curl
+        snippet: "curl - H \"Authorization: XXX\" http : //localhost : 5000 / api / action / config_option_list | python - m json . tool \n {\
+          \ \n \"help\" : \"http://localhost:5000/api/3/action/help_show?name=config_option_list\" , \n \"result\" : [ \n \"ckan.site_custom_css\"\
+          \ , \n \"ckan.theme\" , \n \"ckan.site_title\" , \n \"ckan.site_about\" , \n \"ckan.site_url\" , \n \"ckan.site_logo\" , \n \"ckan.site_description\"\
+          \ , \n \"ckan.site_intro_text"
+  /api/3/action/package_search:
+    get:
+      operationId: get_api_3_action_package_search
+      tags:
+      - Api
+      summary: GET /api/3/action/package_search
+      x-source: https://docs.ckan.org/en/latest/api
+      parameters:
+      - name: fq
+        in: query
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success (status as documented)
+      x-evidence:
+        kind: code-example
+        language: curl
+        snippet: "curl: curl 'http://demo.ckan.org/api/3/action/package_search?fq=tags:economy' \n ckanapi: ckanapi -r http://demo.ckan.org action\
+          \ package_search fq='tags:economy' \n Tag Vocabularies  \n Top 10 tags and vocabulary tags used by datasets: \n browser: http://demo.ckan.org/api/action/package_search?facet.field=[%22tags%22]&facet.limit=10&rows=0 "
+  /api/3/action/resource_patch:
+    get:
+      operationId: get_api_3_action_resource_patch
+      tags:
+      - Api
+      summary: Upload a new version of a resource file
+      x-source: https://docs.ckan.org/en/latest/_sources/api/index.rst.txt
+      parameters:
+      - name: id
+        in: query
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetApi3ActionResourcePatchResponse'
+      x-evidence:
+        kind: documentation
+    post:
+      operationId: post_api_3_action_resource_patch
+      tags:
+      - Api
+      summary: POST /api/3/action/resource_patch
+      x-source: https://docs.ckan.org/en/latest/_sources/api/index.rst.txt
+      responses:
+        '201':
+          description: Success (status as documented)
+      x-evidence:
+        kind: code-example
+        language: curl
+        snippet: 'curl -X POST  -H "Content-Type: multipart/form-data"  -H "Authorization: XXXX"  -F "id=<resource_id>" -F "upload=@updated_file.csv"
+          https://demo.ckan.org/api/3/action/resource_patch'
+  /api/3/action/tag_list:
+    get:
+      operationId: get_api_3_action_tag_list
+      tags:
+      - Api
+      summary: GET /api/3/action/tag_list
+      x-source: https://docs.ckan.org/en/latest/api
+      responses:
+        '200':
+          description: Success (status as documented)
+      x-evidence:
+        kind: code-example
+        language: curl
+        snippet: "curl: curl http://demo.ckan.org/api/3/action/tag_list \n ckanapi: ckanapi -r http://demo.ckan.org action tag_list \n Top 10\
+          \ tags used by datasets: \n browser: http://demo.ckan.org/api/action/package_search?facet.field=[%22tags%22]&facet.limit=10&rows=0 "
+  /api/action/package_search:
+    get:
+      operationId: get_api_action_package_search
+      tags:
+      - Api
+      summary: GET /api/action/package_search
+      x-source: https://docs.ckan.org/en/latest/api
+      responses:
+        '200':
+          description: Success (status as documented)
+      x-evidence:
+        kind: code-example
+        language: curl
+        snippet: "curl: curl 'http://demo.ckan.org/api/action/package_search?facet.field=\\[\"tags\"\\]&facet.limit=10&rows=0' \n ckanapi: ckanapi\
+          \ -r http://demo.ckan.org action package_search facet.field='[\"tags\"]' facet.limit=10 rows=0 \n All datasets that have tag ‘economy’:\
+          \ \n browser: http://demo.ckan.org/api/3/action/package_search?fq=tags:economy "
+  /api/action/resource_create:
+    get:
+      operationId: get_api_action_resource_create
+      tags:
+      - Api
+      summary: GET /api/action/resource_create
+      x-source: https://docs.ckan.org/en/latest/maintaining/filestore.html
+      responses:
+        '200':
+          description: Success (status as documented)
+      x-evidence:
+        kind: code-example
+        language: curl
+        snippet: "curl - H 'Authorization: your-api-key' 'http://yourhost/api/action/resource_create'  -- form upload = @filetoupload -- form\
+          \ package_id = my_dataset \n (Curl automatically sends a multipart-form-data heading with you use the\n --form option.) \n To create\
+          \ a new resource and upload a file to it using the Python library\n requests : \n import requests \n requests . post ( 'http://0.0.0.0:5000/api/action/re"
+  /api/action/resource_update:
+    get:
+      operationId: get_api_action_resource_update
+      tags:
+      - Api
+      summary: GET /api/action/resource_update
+      x-source: https://docs.ckan.org/en/latest/maintaining/filestore.html
+      responses:
+        '200':
+          description: Success (shape read from the example response on the page)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetApiActionResourceUpdateResponse'
+      x-evidence:
+        kind: code-example
+        language: curl
+        snippet: "curl - H 'Authorization: your-api-key' 'http://yourhost/api/action/resource_update'  -- form upload = @newfiletoupload -- form\
+          \ id = resourceid \n To replace an uploaded file with a link to a file at a remote URL, use the\n clear_upload field: "
+  /api/search/dataset:
+    get:
+      operationId: get_api_search_dataset
+      tags:
+      - Api
+      summary: GET /api/search/dataset
+      x-source: https://docs.ckan.org/en/latest/api/legacy-api.html
+      responses:
+        '200':
+          description: Success (shape read from the example response on the page)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetApiSearchDatasetResponse'
+      x-evidence:
+        kind: code-example
+        language: curl
+        snippet: "curl 'http://thedatahub.org/api/search/dataset?qjson=\\{\"author\":\"The%20Stationery%20Office %20Li mited\"\\}' \n Revision\
+          \ Parameters \n Param-Key \n Param-Value \n Example \n Notes \n since_time \n Date-Time \n since_time=2010-05-05T19:42:45.854533 \n\
+          \ The time can be less precisely\nstated (e.g 2010-05-05). \n since_id \n Uuid \n since_id=6c9f32ef-1f93-4b2f-891b-fd01924ebe08 \n The\
+          \ stated id will not be\nincluded i"
+  /solr/admin:
+    get:
+      operationId: get_solr_admin
+      tags:
+      - Solr
+      summary: GET /solr/admin
+      x-source: https://docs.ckan.org/en/latest/contributing/test.html
+      responses:
+        '200':
+          description: Success (status as documented)
+      x-evidence:
+        kind: code-example
+        language: curl
+        snippet: "curl - s 'http://127.0.0.1:8983/solr/admin/' | grep SolrHome \n Configure Solr with the new core by editing solr.xml . The ‘cores’\
+          \ section will have one ‘core’ in it already and needs the second one ‘ckan’ added so it looks like this: \n < cores adminPath = \"\
+          /admin/cores\" defaultCoreName = \"collection1\" > \n < core name = \"collection1\" instanceDir = \".\" /> \n < core name = \"ckan\"\
+          \ instanceDir = \"/etc/s"
+  /solr/admin/cores:
+    get:
+      operationId: get_solr_admin_cores
+      tags:
+      - Solr
+      summary: GET /solr/admin/cores
+      x-source: https://docs.ckan.org/en/latest/contributing/test.html
+      parameters:
+      - name: action
+        in: query
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success (status as documented)
+      x-evidence:
+        kind: code-example
+        language: curl
+        snippet: "curl - s 'http://127.0.0.1:8983/solr/admin/cores?action=STATUS' | python - c 'import sys;import xml.dom.minidom;s=sys.stdin.read();print(xml.dom.minidom.parseString(s).toprettyxml())'\
+          \ \n Each core will be within a child from the <lst name=\"status\" element, and contain a <str name=\"instanceDir\"> element. \n You\
+          \ can also tell from your ckan config (assuming ckan is working): \n grep solr_url | ckan . i"
+components:
+  schemas:
+    GetResponse:
+      type: object
+      properties:
+        help:
+          type: string
+        success:
+          type: boolean
+        result:
+          type: array
+          items:
+            type: string
+    GetApi3ActionGroupListResponse:
+      type: object
+      properties:
+        help:
+          type: string
+        success:
+          type: boolean
+        result:
+          type: array
+          items:
+            type: string
+    GetApi3ActionResourcePatchResponse:
+      type: object
+      properties:
+        help:
+          type: string
+        success:
+          type: boolean
+        result:
+          type: object
+    GetApiActionResourceUpdateResponse:
+      type: object
+      properties:
+        type:
+          type: string
+    GetApiSearchDatasetResponse:
+      type: object
+      properties:
+        ResultSet:
+          type: object
+          properties:
+            Result:
+              type: array
+              items:
+                type: object
+                properties:
+                  match_field:
+                    type: string
+                  match_displayed:
+                    type: string
+                  name:
+                    type: string
+                  title:
+                    type: string
+  securitySchemes:
+    apiKey:
+      type: apiKey
+      in: header
+      name: Authorization
+security:
+- apiKey: []
+tags:
+- name: Api
+- name: Solr

@@ -1,0 +1,45 @@
+generated: '2026-10-21'
+method: searched
+source: https://docs.ckan.org/en/latest/api/
+description: >-
+  Cross-cutting conventions of the CKAN Action API as documented by the CKAN project (docs.ckan.org), which apis.yml
+  names as data.gov.au's documentation. data.gov.au publishes no API conventions page of its own and its live API
+  answered 503 (scheduled maintenance until 22 October 2026) on 2026-10-21, so nothing here was observed on a live response.
+base_url: https://data.gov.au/data/api/3/action
+api_style: RPC-style actions over HTTPS; JSON dictionary POSTed to /api/3/action/<function>; get functions also callable with HTTP GET query parameters; JSON responses
+authentication:
+  style: API token in the Authorization header for actions that require authorization; anonymous for GET-able read actions
+  ref: authentication/data-gov-au-authentication.yml
+idempotency:
+  coverage: none
+  note: The CKAN API docs document no idempotency key or replay protection for create/update actions.
+pagination:
+  style: offset
+  params: [rows, start]
+  note: The docs show package_search?q=spending&rows=10 ("to get only the first 10 matching datasets"); start/offset paging is CKAN's package_search parameter set but is not described on the page read.
+field_expansion: null
+request_tracing: null
+versioning:
+  scheme: URL path (/api/3/)
+  current: '3'
+  text: >-
+    "Version 3 is currently the only version of the Action API." Requests without a version number get the latest
+    version, so the docs recommend always specifying it.
+error_envelope:
+  shape: '{"help": ..., "success": false, "error": {"message": ..., "__type": ...}}'
+  text: >-
+    Check the "success" key in every response; on failure the dictionary carries an "error" key instead of "result".
+    Major formatting problems may still return HTTP 409, 400 or 500.
+  ref: errors/data-gov-au-problem-types.yml
+rate_limits:
+  documented: false
+  ref: rate-limits/data-gov-au-rate-limits.yml
+other_conventions:
+  jsonp: GET responses can be wrapped in JSONP via the callback parameter (GET only).
+  multi_value_params: list parameters are sent by repeating the parameter in the URL.
+reversibility:
+  status: not-documented
+  note: >-
+    Public callers have a read-only surface. Publisher write actions (package_create, resource_create, ...) exist for
+    authenticated users, but the API page read documents no reversal operation or window; none is asserted here.
+dry_run_mode: not-documented

@@ -1,0 +1,64 @@
+name: data.gov.au Federal MCP Server (candidate)
+type: MCPServer
+aid: data-gov-au
+status: candidate
+generated: '2026-10-21'
+method: derived
+source:
+  - https://docs.ckan.org/en/latest/api/
+  - https://docs.ckan.org/en/latest/maintaining/datastore.html
+description: >-
+  No official MCP server published by data.gov.au / the Australian Bureau of Statistics was found
+  (web search 2026-10-21; GitHub org datagovau has no repository matching "mcp"). This is a CANDIDATE
+  tool list derived from the read-only CKAN Action API actions documented at docs.ckan.org, which the
+  portal exposes under https://data.gov.au/data/api/3/action/. No OpenAPI contract is saved in this
+  repo, so tools are bound to CKAN action names, not operationIds. Nothing here has been called as an MCP server.
+deployment:
+  mode: none
+  auth: none
+  verified: derived
+probe:
+  - url: https://data.gov.au/data/api/3/action/status_show
+    status: 503
+    date: '2026-10-21'
+    note: Host returned an HTML maintenance-style page titled "Australian Bureau of Statistics".
+third_party_servers:
+  note: Community servers that can target data.gov.au; NOT official, not verified by probe.
+  servers:
+    - name: GovData MCP (chester-2026/gov-stat-mcp-server)
+      url: https://mcpservers.org/vi/servers/chester-2026/gov-stat-mcp-server
+      official: false
+    - name: ondata/ckan-mcp-server (generic CKAN)
+      url: https://civictech.guide/projects/ckan-mcp-server
+      official: false
+tools:
+  - name: package_search
+    description: Search datasets by query, filters and facets.
+    backing: GET /data/api/3/action/package_search
+  - name: package_show
+    description: Return full metadata for one dataset by id or name.
+    backing: GET /data/api/3/action/package_show
+  - name: package_list
+    description: List dataset names.
+    backing: GET /data/api/3/action/package_list
+  - name: resource_show
+    description: Return metadata for one resource.
+    backing: GET /data/api/3/action/resource_show
+  - name: organization_list
+    description: List publishing organizations.
+    backing: GET /data/api/3/action/organization_list
+  - name: organization_show
+    description: Return one organization's details.
+    backing: GET /data/api/3/action/organization_show
+  - name: group_list
+    description: List groups.
+    backing: GET /data/api/3/action/group_list
+  - name: tag_list
+    description: List tags.
+    backing: GET /data/api/3/action/tag_list
+  - name: datastore_search
+    description: Query tabular rows in a DataStore-enabled resource (CKAN DataStore extension).
+    backing: GET /data/api/3/action/datastore_search
+  - name: status_show
+    description: Return CKAN version and enabled extensions.
+    backing: GET /data/api/3/action/status_show

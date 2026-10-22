@@ -1,0 +1,21 @@
+generated: '2026-10-21'
+method: searched
+source: https://docs.ckan.org/en/latest/api/
+versioning:
+  scheme: URL path version (/api/3/action/...)
+  current: '3'
+  policy: >-
+    "Version 3 is currently the only version of the Action API." The docs recommend specifying the version because
+    "the latest version of the API may change when a site is upgraded to a new version of CKAN".
+  platform_changelog: https://docs.ckan.org/en/latest/changelog.html
+deprecation:
+  policy: null
+  note: No data.gov.au deprecation policy or Sunset/Deprecation header usage found; no OpenAPI exists to derive deprecated operations from.
+sla: null
+status_page: null
+maintenance:
+  observed: '2026-10-21'
+  url: https://data.gov.au/
+  http_status: 503
+  text: Data.gov.au is currently undergoing maintenance. We'll be back online on 22 October 2026.
+deprecated_operations: []

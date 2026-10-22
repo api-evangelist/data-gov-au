@@ -1,0 +1,88 @@
+generated: '2026-10-21'
+method: derived
+source: the pre-flight dossier, apis.yml pointers, spec servers, well-known, vendors -- nothing fetched here
+generator: derive-hosts.py
+summary:
+  hosts: 6
+  own: 1
+  other_domain: 4
+  platform: 1
+  roles:
+  - api
+  - docs
+  - other
+  - source
+  - website
+hosts:
+- host: api.ckan.org
+  found_by:
+  - contract-discovery
+  types: []
+  serves: []
+  registrable_domain: ckan.org
+  role: api
+  relation: other-domain
+- host: api.gov.au
+  found_by:
+  - contract-discovery
+  types: []
+  serves: []
+  registrable_domain: api.gov.au
+  role: api
+  relation: other-domain
+- host: data.gov.au
+  found_by:
+  - pointer
+  - apis[]
+  - probed
+  - contract-discovery
+  - well-known
+  - vendor-detect
+  types:
+  - Website
+  serves:
+  - api
+  - docs
+  - cdn
+  vendor: cloudfront
+  registrable_domain: data.gov.au
+  role: website
+  relation: own
+- host: demo.ckan.org
+  found_by:
+  - apis[]
+  types: []
+  serves:
+  - api
+  registrable_domain: ckan.org
+  role: other
+  relation: other-domain
+- host: docs.ckan.org
+  found_by:
+  - pointer
+  - apis[]
+  - probed
+  - docs-index
+  - contract-discovery
+  - well-known
+  - vendor-detect
+  types:
+  - GettingStarted
+  - Documentation
+  serves:
+  - docs
+  - cdn
+  - documentation
+  vendor: cloudflare
+  registrable_domain: ckan.org
+  role: docs
+  relation: other-domain
+- host: github.com
+  found_by:
+  - pointer
+  types:
+  - GitHubOrganization
+  serves: []
+  registrable_domain: github.com
+  role: source
+  relation: platform

@@ -1,0 +1,30 @@
+generated: '2026-10-21'
+method: searched
+source: https://docs.ckan.org/en/latest/api/
+format: ckan-action-envelope
+envelope:
+  success: boolean, always present; check it on every response
+  error: '{message, __type} present instead of result when success is false'
+  documented_example:
+    help: Creates a package
+    success: false
+    error:
+      message: Access denied
+      __type: Authorization Error
+  example_note: The HTTP status returned with this Authorization Error envelope is not stated on the page.
+note: From the CKAN platform API docs (data.gov.au publishes no error reference of its own). The docs give one worked error
+  example and the three HTTP statuses below; they do not publish a full catalogue of __type values.
+problems:
+- status: 400
+  title: Bad request (major formatting problem)
+  description: '"If there are major formatting problems with a request to the API, CKAN may still return an HTTP response
+    with a 409, 400 or 500 status code (in increasing order of severity)."'
+  remediation: Fix the request JSON / parameters and read the error key.
+- status: 409
+  title: Conflict / validation (major formatting problem)
+  description: Listed with 400 and 500 as statuses CKAN may return for major request formatting problems.
+  remediation: Read error for the failing fields and resubmit.
+- status: 500
+  title: Server error
+  description: Most severe of the three statuses CKAN may return for malformed requests.
+  remediation: Retry later; if persistent, check the request format.

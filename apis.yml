@@ -1,11 +1,15 @@
 aid: data-gov-au
+
 name: data.gov.au Federal
-description: >-
-  data.gov.au Federal is a national government open-data portal for Australia running CKAN.
-  It exposes the CKAN catalog API, a standardized machine-readable interface over approximately 132,257 datasets,
-  supporting programmatic dataset search, metadata retrieval, and resource access. Because it runs CKAN, it shares a
-  consistent API surface with every other CKAN portal, making it uniformly harvestable and integrable.
+
+description: data.gov.au Federal is the Australian Government's national open-data portal, run on CKAN and (per its own maintenance notice) operated
+  under the Australian Bureau of Statistics. It exposes the CKAN Action API, a standardized machine-readable JSON interface over approximately
+  132,257 datasets, supporting programmatic dataset search, metadata retrieval, and resource access. Because it runs CKAN, it shares a consistent
+  API surface with every other CKAN portal, making it uniformly harvestable and integrable. Its CKAN extensions (ckanext-datagovau and others)
+  are published in the datagovau GitHub organization.
+
 kind: government
+
 deliveryModel:
   model: saas
   open_source: false
@@ -17,6 +21,7 @@ deliveryModel:
   - pricing
   generated: '2026-08-28'
   method: derived
+
 accessModel:
   pricing: free
   onboarding: unknown
@@ -29,60 +34,152 @@ accessModel:
   - plans
   generated: '2026-07-22'
   method: derived
+
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/data-gov-au.png
+
 url: https://raw.githubusercontent.com/api-evangelist/data-gov-au/refs/heads/main/apis.yml
+
 x-docs-platform: readthedocs
+
 x-docs-platform-confidence: high
+
 x-docs-platform-checked: 2026-09-25
+
 tags:
-  - Open Data
-  - CKAN
-  - Data Catalog
-  - DCAT
-  - Government Data
-  - National Government
-  - Australia
+- Open Data
+- CKAN
+- Data Catalog
+- DCAT
+- Government Data
+- National Government
+- Australia
+- Federal Government
+- Public Sector
+
 created: '2026-06-04'
-modified: '2026-06-04'
+
+modified: '2026-10-21'
+
 specificationVersion: '0.23'
-apis:
-  - aid: data-gov-au:catalog
-    name: data.gov.au Federal CKAN Action API
-    description: >-
-      CKAN Action API for data.gov.au Federal, a consistent JSON-over-HTTP interface over a catalog of 132,257 datasets. Standard actions include package_search, package_show, package_list, organization_list, group_list, tag_list, and resource_search; datastore_search is available where the DataStore extension is enabled. Base URL https://data.gov.au/data/api/3/action/.
-    humanURL: https://data.gov.au/data
-    baseURL: https://data.gov.au/data/api/3/action
-    tags:
-      - CKAN
-      - Action API
-      - Open Data
-      - Catalog
-      - REST
-      - JSON
-    properties:
-      - type: Documentation
-        url: https://docs.ckan.org/en/latest/api/
-      - type: Website
-        url: https://data.gov.au/data
-      - type: x-api-endpoint
-        url: https://data.gov.au/data/api/3/action/status_show
+
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com
+
 common:
-  - type: DomainSecurity
-    url: security/data-gov-au-domain-security.yml
-  - type: Website
-    url: https://data.gov.au/data
+- type: Spectral
+  url: rules/data-gov-au-rules.yml
+- type: JSONLD
+  url: json-ld/data-gov-au-context.jsonld
+- type: Vocabulary
+  url: vocabulary/data-gov-au-vocabulary.yml
+- type: DataModel
+  url: data-model/data-gov-au-data-model.yml
+- type: Conventions
+  url: conventions/data-gov-au-conventions.yml
+- type: Authentication
+  url: authentication/data-gov-au-authentication.yml
+- type: Lifecycle
+  url: lifecycle/data-gov-au-lifecycle.yml
+- type: ErrorCatalog
+  url: errors/data-gov-au-problem-types.yml
+- type: Conformance
+  url: conformance/data-gov-au-conformance.yml
+- type: Hosts
+  url: hosts/data-gov-au-hosts.yml
+- type: IntegrationEdges
+  url: integrations/data-gov-au-integration-edges.yml
+- type: Vendors
+  url: vendors/data-gov-au-vendors.yml
+- type: GettingStarted
+  url: https://docs.ckan.org/en/latest/maintaining/getting-started.html
+- type: DomainSecurity
+  url: security/data-gov-au-domain-security.yml
+- type: Website
+  url: https://data.gov.au/data
+- type: Documentation
+  url: https://docs.ckan.org/en/latest/api/
+- type: GitHubOrganization
+  url: https://github.com/datagovau
+- type: Plans
+  url: plans/data-gov-au-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/data-gov-au-rate-limits.yml
+- type: FinOps
+  url: finops/data-gov-au-finops.yml
+- type: Review
+  url: review.yml
+
+apis:
+- aid: data-gov-au:catalog
+  name: data.gov.au Federal CKAN Action API
+  description: CKAN Action API for data.gov.au Federal, a consistent JSON-over-HTTP interface over a catalog of 132,257 datasets. Standard actions
+    include package_search, package_show, package_list, organization_list, group_list, tag_list, and resource_search; datastore_search is available
+    where the DataStore extension is enabled. Base URL https://data.gov.au/data/api/3/action/.
+  humanURL: https://data.gov.au/data
+  baseURL: https://data.gov.au/data/api/3/action
+  tags:
+  - CKAN
+  - Action API
+  - Open Data
+  - Catalog
+  - REST
+  - JSON
+  properties:
   - type: Documentation
     url: https://docs.ckan.org/en/latest/api/
-  - type: Plans
-    url: plans/data-gov-au-plans-pricing.yml
-  - type: RateLimits
-    url: rate-limits/data-gov-au-rate-limits.yml
-  - type: FinOps
-    url: finops/data-gov-au-finops.yml
-  - type: Review
-    url: review.yml
-maintainers:
-  - FN: Kin Lane
-    email: kin@apievangelist.com
+  - type: Website
+    url: https://data.gov.au/data
+  - type: x-api-endpoint
+    url: https://data.gov.au/data/api/3/action/status_show
+- aid: data-gov-au:data-gov-au-api
+  name: data.gov.au Federal API
+  description: 'data.gov.au Federal API as documented publicly: 15 operations. Contract generated from the documentation by API Evangelist (2026-10-21);
+
+    not the provider''s own document.'
+  humanURL: https://docs.ckan.org/en/latest/api
+  baseURL: http://demo.ckan.org
+  properties:
+  - type: OpenAPI
+    url: openapi/_ae-authored/data-gov-au-openapi-generated.yml
+    x-provenance: generated
+  - type: JSONSchema
+    url: json-schema/data-gov-au-get-api-search-dataset-response-schema.json
+  - type: JSONSchema
+    url: json-schema/data-gov-au-get-api3-action-group-list-response-schema.json
+  - type: JSONSchema
+    url: json-schema/data-gov-au-get-response-schema.json
+  - type: JSONSchema
+    url: json-schema/data-gov-au-get-api3-action-resource-patch-response-schema.json
+  - type: JSONSchema
+    url: json-schema/data-gov-au-get-api-action-resource-update-response-schema.json
+
 x-parent: open-government-australia
+
 x-relationship: product
+
+x-coverage:
+  state: covered
+  reason: maintenance
+  detail: Identity pass 2026-10-21. Every data.gov.au URL (/, /data, /data/api/3/action/status_show, www.) returned HTTP 503 with a maintenance
+    page titled "Australian Bureau of Statistics" stating "Data.gov.au is currently undergoing maintenance. We'll be back online on 22 October
+    2026." The pre-flight graded this 503 as a bot-challenge; the body shows it is scheduled maintenance, so existing data.gov.au pointers were
+    kept (not dead) and no new on-site pointers (terms, privacy, support) could be verified or added. GitHub org datagovau verified (links to
+    data.gov.au, hosts ckanext-datagovau).
+  evidence:
+  - url: https://data.gov.au/data
+    status: 503
+  - url: https://data.gov.au/
+    status: 503
+  - url: https://data.gov.au/data/api/3/action/status_show
+    status: 503
+  - url: https://docs.ckan.org/en/latest/api/
+    status: 200
+  - url: https://github.com/datagovau
+    status: 200
+x-enrichment:
+  date: '2026-10-21'
+  status: enriched
+  artifacts_added: 23
+  pass: modular-v1
+  engine: identity=anthropic,contract=anthropic,surfaces=anthropic,docs=anthropic,regulatory=anthropic

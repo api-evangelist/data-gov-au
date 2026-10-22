@@ -1,0 +1,78 @@
+generated: '2026-10-21'
+method: searched
+source: https://web.archive.org/web/20260326035523/https://www.data.gov.au/node/17
+access_note: >-
+  The live site was unreachable on 2026-10-21: https://data.gov.au/, https://data.gov.au/data,
+  https://data.gov.au/privacy and https://www.data.gov.au/node/17 all returned HTTP 503 with a
+  maintenance page ("Data.gov.au is currently undergoing maintenance. We'll be back online on
+  22 October 2026."). The provider's own Privacy policy and Accessibility pages were therefore
+  read from Internet Archive snapshots of those same data.gov.au URLs (2026-03-26 and 2026-07-25).
+  The quotes are the provider's own text as it stood on those dates. Re-verify them against the live pages once the site is back.
+signals:
+  data_subject_request:
+    url: https://www.data.gov.au/node/17
+    section: Accessing or correcting personal information
+    channel: support@data.gov.au
+    rights_named: [access, correction]
+    evidence:
+    - source: https://web.archive.org/web/20260326035523/https://www.data.gov.au/node/17
+      http_status: 200
+      fetched: '2026-10-21'
+      quote: >-
+        You may request to access or correct your personal contact details provided to the Australian
+        Bureau of Statistics. To protect your privacy and the privacy of others, we will need evidence of
+        your identity before we can grant you access to information about you or change it.
+    note: >-
+      Access and correction rights over contact details, with identity verification, via
+      support@data.gov.au. No deletion or portability right and no response time are stated. The page
+      notes that the only personal data collected is contact detail ("We do not collect personal
+      information about you when you visit Data.gov.au").
+  data_residency:
+    url: https://www.data.gov.au/node/17
+    section: How we protect your personal information
+    evidence:
+    - source: https://web.archive.org/web/20260326035523/https://www.data.gov.au/node/17
+      http_status: 200
+      fetched: '2026-10-21'
+      quote: This online service is hosted in Australia within a secure, government accredited facility.
+    - source: https://web.archive.org/web/20260326035523/https://www.data.gov.au/node/17
+      http_status: 200
+      fetched: '2026-10-21'
+      quote: >-
+        Google Analytics and Visual Web Optimiser are the analytics tools used by Data.gov.au. These
+        services transmit website traffic data to Google and IBM SoftLayer servers, that may be located
+        outside of Australia.
+    note: >-
+      The service is hosted in Australia. Website traffic data sent to the analytics tools may leave
+      Australia. This is a statement about hosting, not a choice of region offered to API users.
+  subprocessors:
+    url: https://www.data.gov.au/node/17
+    section: Website analytics
+    named: [Google (Google Analytics), Wingify (Visual Web Optimiser), IBM SoftLayer (hosting for analytics data)]
+    evidence:
+    - source: https://web.archive.org/web/20260326035523/https://www.data.gov.au/node/17
+      http_status: 200
+      fetched: '2026-10-21'
+      quote: >-
+        These services do not identify individual users or associate your IP address with any other data
+        held by Google or Wingify (the parent company of Visual Web Optimiser).
+    note: >-
+      The privacy policy names its third-party analytics processors in its text. This is not a formal
+      subprocessor list, and it covers website analytics only. The policy says nothing about processors behind the CKAN API.
+  accessibility_conformance:
+    url: https://data.gov.au/accessibility
+    section: Accessibility
+    standard: WCAG 2.2 Level AA (partial, "largely meets")
+    channel: support@data.gov.au
+    evidence:
+    - source: https://web.archive.org/web/20260725225533/https://data.gov.au/accessibility
+      http_status: 200
+      fetched: '2026-10-21'
+      quote: >-
+        We've designed this website to meet the Australian Government's web accessibility requirements as
+        established in the Digital Service Standard. This includes complying with legislation and
+        standards, including the Disability Discrimination Act (1992) and Web Content Accessibility
+        Guidelines (WCAG). This website largely meets WCAG 2.2 Level AA.
+    note: >-
+      A self-declared, partial conformance claim ("largely meets") against WCAG 2.2 AA, under the
+      Digital Service Standard and the Disability Discrimination Act 1992. Accessibility issues are reported to support@data.gov.au.

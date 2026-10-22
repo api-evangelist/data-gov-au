@@ -1,0 +1,25 @@
+generated: '2026-10-21'
+method: searched
+source: https://docs.ckan.org/en/latest/api/
+docs: https://docs.ckan.org/en/latest/api/#authentication-and-api-tokens
+note: >-
+  data.gov.au publishes no OpenAPI and no API page of its own; apis.yml points its Documentation at the CKAN platform
+  docs (docs.ckan.org), which this profile is read from. Site-specific configuration (for example a renamed token
+  header) could not be checked: data.gov.au answered 503 with "Data.gov.au is currently undergoing maintenance. We'll
+  be back online on 22 October 2026." on 2026-10-21.
+summary: >-
+  Read (GET-able) actions need no credentials. Actions that require authorization take a CKAN API token in the
+  Authorization header; tokens are generated in the UI (User Profile > Manage > API tokens) or via api_token_create,
+  can be revoked at any time, and can be given an expiry when the expire_api_token plugin is enabled.
+schemes:
+- name: anonymous
+  type: none
+  description: GET-able API functions (ckan.logic.action.get), e.g. package_list and package_search, can be called without authentication.
+- name: apiToken
+  type: apiKey
+  in: header
+  header: Authorization
+  description: >-
+    "To provide your API token in an HTTP request, include it in an Authorization header." The header name is
+    configurable per site via the apitoken_header_name option.
+  example: 'curl -H "Authorization: XXX"  https://demo.ckan.org/api/3/action/am_following_user?id=markw'
